@@ -1,0 +1,11 @@
+jquery.mb.tooltip
+
+1.6 Major bugfix:
+  had problem with “select” elements. fixed
+
+1.1.0 Major bugfix:
+  shadowTop and shadowLeft now works
+  disable and enable mbTooltip now work in all browsers
+
+1.0.0
+  first release
