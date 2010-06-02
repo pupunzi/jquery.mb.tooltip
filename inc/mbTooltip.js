@@ -95,7 +95,7 @@
       }
       $("#tooltip").css({
         position:"absolute",
-        top:  this.options.anchor=="mouse"?$(document).mb_getXY().y +7:parent.offset().top+(parent.outerHeight()),
+        top: this.options.anchor=="mouse"?$(document).mb_getXY().y +7:parent.offset().top+(parent.outerHeight()),
         left:this.options.anchor=="mouse"?$(document).mb_getXY().x+7:parent.offset().left,
         opacity:0
       });
