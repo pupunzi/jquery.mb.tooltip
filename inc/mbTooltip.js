@@ -41,13 +41,6 @@
       var fade=this.options.mb_fade;
       var myOptions=this.options;
       $(ttEl).each(function(){
-/*
-        $(this).hover(function(){
-          $(this).css("cursor","help");
-        },function(){
-          $(this).css("cursor","default");
-        });
-*/
         $(this).attr("tooltip", $(this).attr("title"));
         $(this).removeAttr("title");
         $(this).attr("tooltipEnable","true");
