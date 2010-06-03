@@ -24,7 +24,7 @@
 
 <script>
   $(function(){
-    $("[title]").mbTooltip({ // also $([domElement]).mbTooltip  >>  in this case only children element are involved
+    $(".pippo").mbTooltip({ // also $([domElement]).mbTooltip  >>  in this case only children element are involved
       opacity : .97,       //opacity
       wait:1200,           //before show
       cssClass:"default",  // default = default
@@ -40,7 +40,7 @@
 </script>
 <body>
 <div style="background:#ccc; padding:10px"><font color="#ffffff" size="+3" face="Courier New, Courier, mono"> mbTooltip</font>
-  <button title="you can disable tooltip by clicking here" onclick="$(document).disableTooltip()">disable tooltip</button><button title="you can enable tooltip by clicking here" onclick="$(document).enableTooltip()">enable tooltip</button><button title="add a new line with tooltip crated live" onclick="$.ajax({url: 'test.html', cache: false, success: function(html){$('#newline').append(html);}})">add line with tooltip</button><br><br><br>
+  <button class="pippo" title="you can disable tooltip by clicking here" onclick="$(document).disableTooltip()">disable tooltip</button><button title="you can enable tooltip by clicking here" onclick="$(document).enableTooltip()">enable tooltip</button><button title="add a new line with tooltip crated live" onclick="$.ajax({url: 'test.html', cache: false, success: function(html){$('#newline').append(html);}})">add line with tooltip</button><br><br><br>
 </div><br><br><br><br>
 <span style=" background:lightgray;padding:5px; -moz-border-radius:5px" id="pippo" title="Lorem ipsum dolor sit amet" >prova tooltip (span)</span>
 <p>&nbsp;</p>
