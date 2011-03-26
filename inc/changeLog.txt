@@ -1,7 +1,10 @@
 jquery.mb.tooltip
 
+1.7 Feature:
+  removed the shadow dependency
+
 1.6 Major bugfix:
-  had problem with “select” elements. fixed
+  had problem with "select" elements. fixed
 
 1.1.0 Major bugfix:
   shadowTop and shadowLeft now works
