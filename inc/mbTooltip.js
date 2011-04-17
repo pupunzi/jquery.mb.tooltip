@@ -52,7 +52,7 @@
 				var ttCont= theEl.attr("tooltip");
 				var hover=$.browser.msie?"mouseenter":"mouseover";
 				$(this).bind(hover,function(e){
-					if (myOptions.anchor=="mouse") $().mb_getXY();
+					if (myOptions.anchor=="mouse") $(document).mb_getXY();
 					$(this).one("mouseout",function(){
 						$(this).stopTime();
 						$(this).deleteTooltip(fade);
@@ -74,7 +74,7 @@
 
 	$.fn.extend({
 		mb_getXY:function(){
-			$().bind("mousemove", function(e) {
+			$(document).bind("mousemove", function(e) {
 				mbX = e.pageX;
 				mbY = e.pageY;
 			});
@@ -99,12 +99,13 @@
 			}
 			$("#tooltip").css({
 				position:"absolute",
-				top:  this.options.anchor=="mouse"?$().mb_getXY().y +7:parent.offset().top+(parent.outerHeight()),
-				left:this.options.anchor=="mouse"?$().mb_getXY().x+7:parent.offset().left,
+				top:  this.options.anchor=="mouse"?$(document).mb_getXY().y +7:parent.offset().top+(parent.outerHeight()),
+				left:this.options.anchor=="mouse"?$(document).mb_getXY().x+7:parent.offset().left,
 				opacity:0
 			});
+			console.debug()
 			$("#tooltip").findBestPos(parent,this.options.imgPath,this.options.anchor);
-			if (this.options.anchor=="mouse") $().unbind("mousemove");
+			if (this.options.anchor=="mouse") $(document).unbind("mousemove");
 			$("#tooltip").mb_BringToFront();
 			$("#tooltip").fadeTo(this.options.mb_fade,this.options.opacity,function(){});
 			var timetoshow=3000+cont.length*this.options.timePerWord;
