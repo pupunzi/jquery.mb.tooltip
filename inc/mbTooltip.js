@@ -10,15 +10,15 @@
  ******************************************************************************/
 
 /*
- *        mbTooltip jquery plug in
- * 				developed by Matteo Bicocchi on JQuery
- *        © 2002-2009 Open Lab srl, Matteo Bicocchi
- *			    www.open-lab.com - info@open-lab.com
- *       	version 1.7
- *       	tested on: 	Explorer, FireFox and Chrome for PC
- *                  	FireFox and Safari for Mac Os X
- *                  	FireFox for Linux
- *         MIT (MIT-LICENSE.txt) licenses.
+ * mbTooltip jquery plug in
+ * developed by Matteo Bicocchi on JQuery
+ * © 2002-2009 Open Lab srl, Matteo Bicocchi
+ * www.open-lab.com - info@open-lab.com
+ * version 1.7
+ * tested on: Explorer, FireFox and Chrome for PC
+ *            FireFox and Safari for Mac Os X
+ *            FireFox for Linux
+ * MIT (MIT-LICENSE.txt) licenses.
  */
 
 (function($){
@@ -40,7 +40,7 @@
 			};
 			$.extend (this.options, options);
 			if (this.options.live)$("[title]").live("mouseover",function(){$(this).mbTooltip(options);});
-			var ttEl=$(this).is("[title]")? $(this): $(this).find("[title]");
+			var ttEl=$(this).is("[title]") ? $(this): $(this).find("[title]");
 			var wait=this.options.wait;
 			var fade=this.options.mb_fade;
 			var myOptions=this.options;
@@ -52,7 +52,8 @@
 				var ttCont= theEl.attr("tooltip");
 				var hover=$.browser.msie?"mouseenter":"mouseover";
 				$(this).bind(hover,function(e){
-					if (myOptions.anchor=="mouse") $(document).mb_getXY();
+					if (myOptions.anchor==="mouse")
+						$(document).mb_getXY();
 					$(this).one("mouseout",function(){
 						$(this).stopTime();
 						$(this).deleteTooltip(fade);
@@ -103,7 +104,6 @@
 				left:this.options.anchor=="mouse"?$(document).mb_getXY().x+7:parent.offset().left,
 				opacity:0
 			});
-			console.debug()
 			$("#tooltip").findBestPos(parent,this.options.imgPath,this.options.anchor);
 			if (this.options.anchor=="mouse") $(document).unbind("mousemove");
 			$("#tooltip").mb_BringToFront();
