@@ -1,8 +1,8 @@
 <!doctype html>
 <!--
   ~ jquery.mb.components
-  ~ Copyright (c) 2001-2010. Matteo Bicocchi (Pupunzi); Open lab srl, Firenze - Italy
-  ~ email: info@pupunzi.com
+  ~ Copyright (c) 2001-2011. Matteo Bicocchi (Pupunzi); Open lab srl, Firenze - Italy
+  ~ email: mbicocchi@open-lab.com
   ~ site: http://pupunzi.com
   ~
   ~ Licences: MIT, GPL
@@ -15,8 +15,7 @@
   <title>mbTooltip</title>
 </head>
 <!--<script type="text/javascript" src="../commons/jquery-1.3.1.js"></script>-->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js
-"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script type="text/javascript" src="inc/jquery.timers.js"></script>
 <script type="text/javascript" src="inc/jquery.dropshadow.js"></script>
 <script type="text/javascript" src="inc/mbTooltip.js"></script>
@@ -32,7 +31,7 @@
       hasArrow:false,			// if you whant a little arrow on the corner
       hasShadow:true,
       imgPath:"images/",
-      ancor:"mouse", //"parent"  you can ancor the tooltip to the mouse position or at the bottom of the element
+      anchor:"mouse", //"parent"  you can anchor the tooltip to the mouse position or at the bottom of the element
       shadowColor:"black", //the color of the shadow
       mb_fade:200 //the time to fade-in
     });
@@ -42,17 +41,17 @@
 <div style="background:#ccc; padding:10px"><font color="#ffffff" size="+3" face="Courier New, Courier, mono"> mbTooltip</font>
   <button class="pippo" title="you can disable tooltip by clicking here" onclick="$(document).disableTooltip()">disable tooltip</button><button title="you can enable tooltip by clicking here" onclick="$(document).enableTooltip()">enable tooltip</button><button title="add a new line with tooltip crated live" onclick="$.ajax({url: 'test.html', cache: false, success: function(html){$('#newline').append(html);}})">add line with tooltip</button><br><br><br>
 </div><br><br><br><br>
-<span style=" background:lightgray;padding:5px; -moz-border-radius:5px" id="pippo" title="Lorem ipsum dolor sit amet" >prova tooltip (span)</span>
+<span style=" background:lightgray;padding:5px; -moz-border-radius:5px" id="pippo" title="Lorem ipsum dolor sit amet" >tooltip (span)</span>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<div style=" background:lightgray;padding:5px; -moz-border-radius:5px; width:300px" title="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <br>Vivamus sit amet erat.">prova tooltip 2 (div)</div>
+<div style=" background:lightgray;padding:5px; -moz-border-radius:5px; width:300px" title="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <br>Vivamus sit amet erat."> tooltip 2 (div)</div>
 <div  style="background:lightgray;padding:5px; -moz-border-radius:5px;position:relative; width:350px; float:right;">
-  <p  title="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vivamus sit amet erat. Nulla eleifend. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae">prova tooltip 3 (div relative) </p>
+  <p  title="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vivamus sit amet erat. Nulla eleifend. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae">tooltip 3 (relative div) </p>
 </div><br><br>
 <input style=" background:lightgray;padding:5px; -moz-border-radius:5px" type="text" title="1.Lorem ipsum dolor sit amet, consectetuer adipiscing elit." value="input">
 <input style=" background:lightgray;padding:5px; -moz-border-radius:5px" type="text" title="2.Lorem ipsum dolor sit amet, consectetuer adipiscing elit." value="input">
 <div style="position:absolute; width:400px; top:200px;left:450px; background:gainsboro;padding:5px; -moz-border-radius:5px; z-index:2000">
-  <p  title="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vivamus sit amet erat. Nulla eleifend. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae">prova tooltip 4 (div absolute)</p>
+  <p  title="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vivamus sit amet erat. Nulla eleifend. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae">tooltip 4 (absolute div)</p>
 </div>
 
 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vivamus sit amet erat. <span title="Vestibulum ante ipsum primis in"><b>Nulla eleifend</b></span>. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae</p>
@@ -65,11 +64,5 @@
 						<option value="5">Five</option>
 					</select>
 <input type="text" id="entry1" class="dateInput"  title="aaaa"/>
-<div style="padding:6px;position:absolute;z-index:1000; bottom:10px; right:10px; -webkit-border-radius:7px;-moz-border-radius:7px;border:2px solid white; background:#000;text-align:center;color:white;">
-  Please support my work<br>with a free donation!<br><br>
-  <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=V6ZS8JPMZC446&amp;lc=GB&amp;item_name=mb%2eideas&amp;item_number=MBIDEAS&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donateCC_LG_global%2egif%3aNonHosted">
-    <img alt="PayPal" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif" border="0">
-  </a>
-</div>
 </body>
 </html>
