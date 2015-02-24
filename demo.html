@@ -24,7 +24,7 @@
   <title>mbTooltip</title>
 </head>
 <!--<script type="text/javascript" src="../commons/jquery-1.3.1.js"></script>-->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
 <script type="text/javascript" src="inc/jquery.timers.js"></script>
 <script type="text/javascript" src="inc/mbTooltip.js"></script>
 <link rel="stylesheet" type="text/css" href="css/mbTooltip.css" title="style1"  media="screen">
@@ -33,14 +33,12 @@
   $(function(){
     $("body").mbTooltip({ // also $([domElement]).mbTooltip  >>  in this case only children element are involved
       opacity : .97,       //opacity
-      wait:1200,           //before show
+      wait:400,           //before show
       cssClass:"default",  // default = default
-      timePerWord:70,      //time to show in milliseconds per word
-      hasArrow:false,			// if you whant a little arrow on the corner
-      hasShadow:true,
+      timePerWord:20,      //time to show in milliseconds per word
+      hasArrow:true,			// if you whant a little arrow on the corner
       imgPath:"images/",
       anchor:"mouse", //"parent"  you can anchor the tooltip to the mouse position or at the bottom of the element
-      shadowColor:"black", //the color of the shadow
       mb_fade:200 //the time to fade-in
     });
   });

@@ -33,10 +33,7 @@ body{
 	margin-top:4px;
 	font-size:12px;
 	color:dimgray;
-	-moz-box-shadow:2px 2px 4px rgba(0,0,0,.4);
-	-webkit-box-shadow:2px 2px 4px rgba(0,0,0,.4);
-	-o-box-shadow:2px 2px 4px rgba(0,0,0,.4);
-	box-shadow:2px 2px 4px rgba(0,0,0,.4);
+	box-shadow:0 0 4px rgba(0,0,0,.4);
 
 }
 
@@ -52,12 +49,10 @@ body{
 
 
 #tooltip.default{
-	border:2px solid white;
-	background:#000;
-	color:#fff;
-	-webkit-border-radius:5px;
-	-moz-border-radius:5px;
-	border-radius:5px;
+	border:0 solid white;
+	background:#fff;
+	color:#444;
+	border-radius:2px;
 	margin-top:2px;
 }
 

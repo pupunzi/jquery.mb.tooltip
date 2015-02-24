@@ -23,7 +23,7 @@
  * developed by Matteo Bicocchi on JQuery
  * © 2002-2009 Open Lab srl, Matteo Bicocchi
  * www.open-lab.com - info@open-lab.com
- * version 1.8
+ * version 1.9
  * tested on: Explorer, FireFox and Chrome for PC
  *            FireFox and Safari for Mac Os X
  *            FireFox for Linux
@@ -31,7 +31,7 @@
  */
 
 /*Browser detection patch*/
-(function(){if(!(8>jQuery.fn.jquery.split(".")[1])){jQuery.browser={};jQuery.browser.mozilla=!1;jQuery.browser.webkit=!1;jQuery.browser.opera=!1;jQuery.browser.msie=!1;var a=navigator.userAgent;jQuery.browser.name=navigator.appName;jQuery.browser.fullVersion=""+parseFloat(navigator.appVersion);jQuery.browser.majorVersion=parseInt(navigator.appVersion,10);var c,b;if(-1!=(b=a.indexOf("Opera"))){if(jQuery.browser.opera=!0,jQuery.browser.name="Opera",jQuery.browser.fullVersion=a.substring(b+6),-1!=(b= a.indexOf("Version")))jQuery.browser.fullVersion=a.substring(b+8)}else if(-1!=(b=a.indexOf("MSIE")))jQuery.browser.msie=!0,jQuery.browser.name="Microsoft Internet Explorer",jQuery.browser.fullVersion=a.substring(b+5);else if(-1!=(b=a.indexOf("Chrome")))jQuery.browser.webkit=!0,jQuery.browser.name="Chrome",jQuery.browser.fullVersion=a.substring(b+7);else if(-1!=(b=a.indexOf("Safari"))){if(jQuery.browser.webkit=!0,jQuery.browser.name="Safari",jQuery.browser.fullVersion=a.substring(b+7),-1!=(b=a.indexOf("Version")))jQuery.browser.fullVersion= a.substring(b+8)}else if(-1!=(b=a.indexOf("Firefox")))jQuery.browser.mozilla=!0,jQuery.browser.name="Firefox",jQuery.browser.fullVersion=a.substring(b+8);else if((c=a.lastIndexOf(" ")+1)<(b=a.lastIndexOf("/")))jQuery.browser.name=a.substring(c,b),jQuery.browser.fullVersion=a.substring(b+1),jQuery.browser.name.toLowerCase()==jQuery.browser.name.toUpperCase()&&(jQuery.browser.name=navigator.appName);if(-1!=(a=jQuery.browser.fullVersion.indexOf(";")))jQuery.browser.fullVersion=jQuery.browser.fullVersion.substring(0, a);if(-1!=(a=jQuery.browser.fullVersion.indexOf(" ")))jQuery.browser.fullVersion=jQuery.browser.fullVersion.substring(0,a);jQuery.browser.majorVersion=parseInt(""+jQuery.browser.fullVersion,10);isNaN(jQuery.browser.majorVersion)&&(jQuery.browser.fullVersion=""+parseFloat(navigator.appVersion),jQuery.browser.majorVersion=parseInt(navigator.appVersion,10));jQuery.browser.version=jQuery.browser.majorVersion}})(jQuery);
+var nAgt=navigator.userAgent; if(!jQuery.browser){jQuery.browser={};jQuery.browser.mozilla=!1;jQuery.browser.webkit=!1;jQuery.browser.opera=!1;jQuery.browser.safari=!1;jQuery.browser.chrome=!1;jQuery.browser.msie=!1;jQuery.browser.ua=nAgt;jQuery.browser.name=navigator.appName;jQuery.browser.fullVersion=""+parseFloat(navigator.appVersion);jQuery.browser.majorVersion=parseInt(navigator.appVersion,10);var nameOffset,verOffset,ix;if(-1!=(verOffset=nAgt.indexOf("Opera")))jQuery.browser.opera=!0,jQuery.browser.name="Opera",jQuery.browser.fullVersion= nAgt.substring(verOffset+6),-1!=(verOffset=nAgt.indexOf("Version"))&&(jQuery.browser.fullVersion=nAgt.substring(verOffset+8));else if(-1!=(verOffset=nAgt.indexOf("OPR")))jQuery.browser.opera=!0,jQuery.browser.name="Opera",jQuery.browser.fullVersion=nAgt.substring(verOffset+4);else if(-1!=(verOffset=nAgt.indexOf("MSIE")))jQuery.browser.msie=!0,jQuery.browser.name="Microsoft Internet Explorer",jQuery.browser.fullVersion=nAgt.substring(verOffset+5);else if(-1!=nAgt.indexOf("Trident")){jQuery.browser.msie= !0;jQuery.browser.name="Microsoft Internet Explorer";var start=nAgt.indexOf("rv:")+3,end=start+4;jQuery.browser.fullVersion=nAgt.substring(start,end)}else-1!=(verOffset=nAgt.indexOf("Chrome"))?(jQuery.browser.webkit=!0,jQuery.browser.chrome=!0,jQuery.browser.name="Chrome",jQuery.browser.fullVersion=nAgt.substring(verOffset+7)):-1!=(verOffset=nAgt.indexOf("Safari"))?(jQuery.browser.webkit=!0,jQuery.browser.safari=!0,jQuery.browser.name="Safari",jQuery.browser.fullVersion=nAgt.substring(verOffset+7), -1!=(verOffset=nAgt.indexOf("Version"))&&(jQuery.browser.fullVersion=nAgt.substring(verOffset+8))):-1!=(verOffset=nAgt.indexOf("AppleWebkit"))?(jQuery.browser.webkit=!0,jQuery.browser.name="Safari",jQuery.browser.fullVersion=nAgt.substring(verOffset+7),-1!=(verOffset=nAgt.indexOf("Version"))&&(jQuery.browser.fullVersion=nAgt.substring(verOffset+8))):-1!=(verOffset=nAgt.indexOf("Firefox"))?(jQuery.browser.mozilla=!0,jQuery.browser.name="Firefox",jQuery.browser.fullVersion=nAgt.substring(verOffset+ 8)):(nameOffset=nAgt.lastIndexOf(" ")+1)<(verOffset=nAgt.lastIndexOf("/"))&&(jQuery.browser.name=nAgt.substring(nameOffset,verOffset),jQuery.browser.fullVersion=nAgt.substring(verOffset+1),jQuery.browser.name.toLowerCase()==jQuery.browser.name.toUpperCase()&&(jQuery.browser.name=navigator.appName));-1!=(ix=jQuery.browser.fullVersion.indexOf(";"))&&(jQuery.browser.fullVersion=jQuery.browser.fullVersion.substring(0,ix));-1!=(ix=jQuery.browser.fullVersion.indexOf(" "))&&(jQuery.browser.fullVersion=jQuery.browser.fullVersion.substring(0, ix));jQuery.browser.majorVersion=parseInt(""+jQuery.browser.fullVersion,10);isNaN(jQuery.browser.majorVersion)&&(jQuery.browser.fullVersion=""+parseFloat(navigator.appVersion),jQuery.browser.majorVersion=parseInt(navigator.appVersion,10));jQuery.browser.version=jQuery.browser.majorVersion}jQuery.browser.android=/Android/i.test(nAgt);jQuery.browser.blackberry=/BlackBerry|BB|PlayBook/i.test(nAgt);jQuery.browser.ios=/iPhone|iPad|iPod|webOS/i.test(nAgt);jQuery.browser.operaMobile=/Opera Mini/i.test(nAgt); jQuery.browser.windowsMobile=/IEMobile|Windows Phone/i.test(nAgt);jQuery.browser.kindle=/Kindle|Silk/i.test(nAgt);jQuery.browser.mobile=jQuery.browser.android||jQuery.browser.blackberry||jQuery.browser.ios||jQuery.browser.windowsMobile||jQuery.browser.operaMobile||jQuery.browser.kindle;
 
 
 (function($){
@@ -41,44 +41,40 @@
 				live:true,
 				opacity : .9,
 				wait:2000,
-				timePerWord:70,
+				timePerWord:10,
 				cssClass:"default",
 				hasArrow:true,
 				imgPath:"images/",
-				shadowColor:"black",
-				shadowLeft:1,
 				anchor:"mouse", //"parent",
-				shadowTop:1,
 				mb_fade:200
 			};
 			$.extend (this.options, options);
-			if (this.options.live)
-				$("body").on("mouseover","[title]",function(){$(this).mbTooltip(options);});
-			var ttEl=$(this).is("[title]") ? $(this): $(this).find("[title]");
 			var wait=this.options.wait;
 			var fade=this.options.mb_fade;
 			var myOptions=this.options;
-			$(ttEl).each(function(){
-				$(this).attr("tooltip", $(this).attr("title"));
-				$(this).removeAttr("title");
-				$(this).attr("tooltipEnable","true");
+			var hover=$.browser.msie?"mouseenter":"mouseover";
+
+			$(document).on(hover,"*[title]",function(e){
+				if($(this).attr("title").length){
+					$(this).attr("tooltip", $(this).attr("title"));
+					$(this).attr("title", "");
+					$(this).attr("tooltipEnable","true");
+				}
 				var theEl=$(this);
 				var ttCont= theEl.attr("tooltip");
-				var hover=$.browser.msie?"mouseenter":"mouseover";
-				$(this).bind(hover,function(e){
-					if (myOptions.anchor==="mouse")
-						$(document).mb_getXY();
-					$(this).one("mouseout",function(){
-						$(this).stopTime();
-						$(this).deleteTooltip(fade);
-					}).one("click",function(){
-						$(this).stopTime();
-						$(this).deleteTooltip(fade);
-					});
-					$(this).oneTime(wait, function() {
-						if ($(this).attr("tooltipEnable")=="true")
-							$(this).buildTooltip(ttCont,myOptions,e);
-					});
+				if (myOptions.anchor==="mouse")
+					$(document).mb_getXY();
+				$(this).one("mouseout",function(){
+					$(this).stopTime();
+					$(this).deleteTooltip(fade);
+				}).one("click",function(){
+					$(this).stopTime();
+					$(this).deleteTooltip(fade);
+				});
+
+				$(this).oneTime(wait, function() {
+					if ($(this).attr("tooltipEnable")=="true")
+						$(this).buildTooltip(ttCont,myOptions,e);
 				});
 			});
 		});
@@ -122,8 +118,9 @@
 			if (this.options.anchor=="mouse") $(document).unbind("mousemove");
 			$("#tooltip").mb_BringToFront();
 			$("#tooltip").fadeTo(this.options.mb_fade,this.options.opacity,function(){});
-			var timetoshow=3000+cont.length*this.options.timePerWord;
+			var timetoshow=3000+ (cont.length*this.options.timePerWord);
 			var fade=this.options.mb_fade;
+
 			$(this).oneTime(timetoshow,function(){$(this).deleteTooltip(fade);});
 		},
 		deleteTooltip: function(fade){
